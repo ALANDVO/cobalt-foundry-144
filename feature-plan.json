@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "current_feature": "core-worker-skeleton",
+  "features": [
+    {
+      "id": "core-worker-skeleton",
+      "title": "Core Worker Skeleton with Health Endpoint",
+      "status": "done",
+      "acceptance": [
+        "Worker process starts and binds to configured port",
+        "/api/health returns {status: 'ok', startToken, bootId}",
+        "/api/readiness returns {ready: true} after initialization",
+        "Graceful shutdown on SIGTERM/SIGINT",
+        "Basic logging to stdout/stderr"
+      ],
+      "implementation": [
+        "src/worker/index.ts",
+        "src/worker/config.ts",
+        "src/worker/health.ts"
+      ],
+      "tests": [
+        "tests/worker/health.test.ts"
+      ]
+    },
+    {
+      "id": "sqlite-session-store",
+      "title": "SQLite Session Store with Migrations",
+      "status": "planned",
+      "acceptance": [
+        "Database opens with pragmas (busy_timeout, foreign_keys, synchronous)",
+        "Migration chain runs before any query by introspection",
+        "Can store and retrieve sdk_sessions, observations, session_summaries",
+        "Foreign key integrity maintained"
+      ],
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "observer-response-pipeline",
+      "title": "Observer Response Pipeline (plan-18)",
+      "status": "planned",
+      "acceptance": [
+        "Output classifier returns closed enum for all model responses",
+        "Policy table maps each class to preserve/confirm/abort action",
+        "Token budget enforced on conversation history",
+        "Skip sentinel (<skip_summary/>) accepted and confirmed"
+      ],
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "hook-wrapper-contract",
+      "title": "Hook Wrapper Contract (plan-17)",
+      "status": "planned",
+      "acceptance": [
+        "Hook wrapper adds <60ms overhead on Unix, <300ms on Windows",
+        "Fail-open: worker unreachable returns {continue: true} exit 0",
+        "No login shell spawned when node on PATH",
+        "Stdin never touched before bun-runner"
+      ],
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "child-process-ownership",
+      "title": "Child Process Ownership (plan-14)",
+      "status": "planned",
+      "acceptance": [
+        "Process registry keyed by PID with startToken",
+        "Children spawned in own process group",
+        "Boot sweep kills orphaned children",
+        "Shutdown cascade kills all children before exit"
+      ],
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "liveness-authority",
+      "title": "Worker Port & Liveness Authority (plan-15)",
+      "status": "planned",
+      "acceptance": [
+        "Owner record with startToken written to worker-port.json",
+        "Health endpoint echoes startToken and bootId",
+        "Non-inheritable listener socket",
+        "Reclaim policy: SIGTERM -> SIGKILL -> port relocation"
+      ],
+      "implementation": [],
+      "tests": []
+    }
+  ]
+}
