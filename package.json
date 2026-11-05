@@ -1,5 +1,5 @@
 {
-  "name": "cobalt-foundry-144-alan-vo",
+  "name": "cobalt-foundry-144",
   "version": "0.1.0",
   "description": "Persistent Context Across Sessions for Every Agent",
   "main": "dist/worker/index.js",
@@ -14,6 +14,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "better-sqlite3": "^9.4.3",
     "fastify": "^4.26.2",
     "pino": "^8.19.0",
     "pino-pretty": "^11.0.0",
@@ -21,6 +22,7 @@
     "yaml": "^2.4.1"
   },
   "devDependencies": {
+    "@types/better-sqlite3": "^7.6.8",
     "@types/node": "^20.11.24",
     "@types/uuid": "^9.0.8",
     "tsx": "^4.7.1",
