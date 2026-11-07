@@ -73,3 +73,6 @@ Acceptance:
 - Non-inheritable listener socket
 - Reclaim policy: SIGTERM -> SIGKILL -> port relocation
 
+---
+
+Alan Vo · [alanvo.net](https://alanvo.net)
