@@ -1,4 +1,4 @@
-import { Database } from 'better-sqlite3';
+import Database from 'better-sqlite3';
 import { mkdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 
