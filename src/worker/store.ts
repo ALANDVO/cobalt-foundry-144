@@ -2,8 +2,10 @@ import Database from 'better-sqlite3';
 import { mkdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 
+type DBSQLite = Database;
+
 export interface SessionStore {
-  db: Database;
+  readonly db: DBSQLite;
   initializeSchema(): Promise<void>;
   runMigrations(): Promise<void>;
   close(): void;
@@ -13,7 +15,7 @@ export async function createSessionStore(dataDir: string): Promise<SessionStore>
   const dbPath = resolve(dataDir, 'sessions.db');
   mkdirSync(dirname(dbPath), { recursive: true });
 
-  const db = new Database(dbPath);
+  const db: DBSQLite = new Database(dbPath);
   
   // Enable required pragmas
   db.pragma('busy_timeout = 5000');

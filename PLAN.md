@@ -25,13 +25,15 @@ Tests: `tests/worker/health.test.ts`
 
 ### sqlite-session-store — SQLite Session Store with Migrations
 
-Status: planned
+Status: in_progress
 
 Acceptance:
 - Database opens with pragmas (busy_timeout, foreign_keys, synchronous)
 - Migration chain runs before any query by introspection
 - Can store and retrieve sdk_sessions, observations, session_summaries
 - Foreign key integrity maintained
+
+Implementation: `src/worker/store.ts`
 
 ### observer-response-pipeline — Observer Response Pipeline (plan-18)
 

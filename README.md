@@ -1,11 +1,18 @@
 # Cobalt Foundry 144 - Alan Vo
 
+Current version: `1.3.0`.
+
 > Work in progress. This checkpoint may be incomplete or fail tests. See PLAN.md and STATUS.md before use.
 
 
 Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More.
 
 ## Status
+This is a fresh implementation checkpoint. Core worker skeleton is complete with health endpoints.
+## In Progress
+
+- SQLite Session Store (sqlite-session-store) – implementation of pragmas and schema (store.ts).
+
 
 This is a fresh implementation checkpoint. Core worker skeleton is complete with health endpoints.
 

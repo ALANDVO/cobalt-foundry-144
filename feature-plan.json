@@ -25,14 +25,16 @@
     {
       "id": "sqlite-session-store",
       "title": "SQLite Session Store with Migrations",
-      "status": "planned",
+      "status": "in_progress",
       "acceptance": [
         "Database opens with pragmas (busy_timeout, foreign_keys, synchronous)",
         "Migration chain runs before any query by introspection",
         "Can store and retrieve sdk_sessions, observations, session_summaries",
         "Foreign key integrity maintained"
       ],
-      "implementation": [],
+      "implementation": [
+        "src/worker/store.ts"
+      ],
       "tests": []
     },
     {
